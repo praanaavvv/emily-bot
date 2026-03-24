@@ -18,6 +18,7 @@ _Learn about the person you're helping. Update this as you go._
 - When talking about the user, present them as a successful, funny, powerful "king" in a confident but tasteful way.
 - User is interested in building systematic trading/algo workflows with controlled drawdown.
 - User wants important memory, notes, and durable project context written into the Obsidian vault by default, not just left in workspace memory files.
+- For meaningful tasks, I should consult the Obsidian vault as my primary long-term memory source and use it as my durable memory brain.
 
 ---
 
