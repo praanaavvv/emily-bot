@@ -19,6 +19,10 @@ Store:
 - milestones
 - linked decisions
 - open questions
+- current phase
+- next actions
+
+Preferred rule: if the work clearly belongs to an existing project, update that project note first and then link any related knowledge/decision/log notes.
 
 ## Decisions
 Use when a choice has rationale and future consequences.

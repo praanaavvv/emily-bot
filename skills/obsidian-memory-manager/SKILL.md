@@ -25,17 +25,21 @@ Treat `/home/ubuntu/Obsidian/OpenClaw-Agent-Memory` as the primary durable memor
 
 ## Storage workflow
 
-After meaningful work, store durable memory in the most appropriate folder:
+After meaningful work, store durable memory in the most appropriate folder.
+Use this routing preference order:
 
-- `Inbox/` for quick raw capture that needs later cleanup
-- `Daily Notes/` for chronology and same-day context
-- `Sessions/` for session summaries and notable conversation outcomes
-- `Projects/` for active project state, plans, milestones, and working decisions
-- `Decisions/` for durable decisions with rationale
-- `Knowledge/` for evergreen reference knowledge
-- `Entities/` for people, companies, tools, services, and systems
-- `Logs/` for incidents, experiments, diagnostics, and execution traces
-- `Archive/` for stale or completed material
+1. Update an existing `Projects/` note if the task changed active project state.
+2. Create or update a `Decisions/` note if a real decision with rationale was made.
+3. Create or update a `Knowledge/` note if the result is reusable, evergreen, or reference-like.
+4. Create or update an `Entities/` note if the result materially improves understanding of a person, company, tool, or system.
+5. Create or update a `Logs/` note for incidents, debugging, experiments, diagnostics, or traces.
+6. Create or update a `Sessions/` note for notable session outcomes and summaries.
+7. Use `Daily Notes/` for same-day chronology and cross-links.
+8. Use `Inbox/` only for quick capture, uncertainty, or temporary holding.
+9. Move stale material to `Archive/` instead of deleting it.
+
+Default behavior: avoid leaving durable information only in `Inbox/`.
+If a task touches an existing project, prefer updating the project note and linking out from there.
 
 ## Naming guidance
 
