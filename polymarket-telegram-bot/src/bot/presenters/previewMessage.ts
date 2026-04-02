@@ -1,8 +1,11 @@
 import type { PendingTradeSession } from '../../types/session.js';
 import { formatUsdc } from '../../utils/money.js';
+import { secondsUntil } from '../../utils/time.js';
 
 export function buildPreviewMessage(session: PendingTradeSession): string {
   const preview = session.preview!;
+  const ttl = secondsUntil(session.expiresAt);
+
   return [
     '🟦 Confirm Trade',
     '',
@@ -16,6 +19,7 @@ export function buildPreviewMessage(session: PendingTradeSession): string {
     `Max Spend: ${preview.maxSpend ? formatUsdc(preview.maxSpend) : 'Unavailable'}`,
     '',
     `⚠️ ${preview.warningText}`,
+    `Expires In: ${ttl}s`,
     `Pending ID: ${session.pendingTradeId}`,
   ].join('\n');
 }

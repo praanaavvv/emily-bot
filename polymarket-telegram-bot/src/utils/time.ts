@@ -13,3 +13,7 @@ export function isExpired(expiresAt: string): boolean {
 export function ageSeconds(iso: string): number {
   return Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
 }
+
+export function secondsUntil(iso: string): number {
+  return Math.max(0, Math.ceil((new Date(iso).getTime() - Date.now()) / 1000));
+}

@@ -22,6 +22,8 @@ export interface AppConfig {
     apiPassphrase?: string;
     walletAddress?: string;
     rpcUrl: string;
+    dryRun: boolean;
+    paperTrading: boolean;
   };
   trading: {
     confirmTtlSeconds: number;
@@ -56,6 +58,8 @@ export function createConfig(env: Env): AppConfig {
       apiPassphrase: env.POLYMARKET_API_PASSPHRASE,
       walletAddress: env.WALLET_ADDRESS,
       rpcUrl: env.RPC_URL,
+      dryRun: env.DRY_RUN,
+      paperTrading: env.PAPER_TRADING,
     },
     trading: {
       confirmTtlSeconds: env.DEFAULT_CONFIRM_TTL_SECONDS,

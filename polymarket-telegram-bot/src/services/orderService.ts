@@ -60,16 +60,16 @@ export class OrderService {
 
       const raw = await this.tradingGateway.submitOrder(payload);
       locked.state = 'completed';
-      locked.execution.orderId = String(raw.orderId ?? raw.id ?? clientOrderId);
+      locked.execution.orderId = String(raw.orderId ?? clientOrderId);
       await this.store.update(locked);
-      this.auditLogger.event('trade_execution_succeeded', { pendingTradeId, clientOrderId, orderId: locked.execution.orderId });
+      this.auditLogger.event('trade_execution_succeeded', { pendingTradeId, clientOrderId, orderId: locked.execution.orderId, simulated: raw.simulated });
 
       return {
         kind: 'execution_success',
         pendingTradeId,
         clientOrderId,
         orderId: locked.execution.orderId,
-        status: (raw.status as 'filled' | 'accepted' | 'partial') ?? 'accepted',
+        status: raw.status === 'rejected' || raw.status === 'unknown' ? 'accepted' : raw.status,
         action: locked.parsedIntent.action,
         side: locked.parsedIntent.side!,
         marketId: locked.matchedMarket!.marketId,
@@ -79,11 +79,32 @@ export class OrderService {
           avgPrice: typeof raw.avgPrice === 'number' ? raw.avgPrice : payload.limitPrice,
           filledShares: typeof raw.filledShares === 'number' ? raw.filledShares : payload.shares,
           filledNotional: locked.parsedIntent.amount!.value,
-          submittedAt: nowIso(),
+          submittedAt: raw.submittedAt ?? nowIso(),
         },
-        warnings: this.config.appMode !== 'live' ? ['Execution ran through a stubbed Polymarket integration point.'] : [],
+        warnings: raw.simulated ? ['Execution was simulated; no live order was placed.'] : [],
       };
     } catch (error) {
+      const reconciliation = clientOrderId ? await this.tradingGateway.reconcileByClientOrderId(clientOrderId) : { found: false, status: 'unknown' };
+      if (reconciliation.found) {
+        locked.state = 'unknown';
+        locked.execution.orderId = reconciliation.orderId;
+        locked.execution.lastErrorCode = 'EXECUTION_REQUIRES_RECONCILIATION';
+        locked.execution.lastErrorMessage = 'Execution outcome uncertain; order may exist upstream.';
+        await this.store.update(locked);
+        this.auditLogger.event('trade_execution_unknown', { pendingTradeId, clientOrderId, reconciliation });
+        return {
+          kind: 'execution_failure',
+          pendingTradeId,
+          clientOrderId,
+          category: 'unknown_execution_state',
+          code: 'EXECUTION_REQUIRES_RECONCILIATION',
+          message: 'Execution outcome is uncertain; order may have been created upstream.',
+          retryable: false,
+          safeToRetry: false,
+          details: reconciliation.raw,
+        };
+      }
+
       locked.state = 'failed';
       locked.execution.lastErrorCode = 'ORDER_SUBMIT_FAILED';
       locked.execution.lastErrorMessage = error instanceof Error ? error.message : 'Unknown error';

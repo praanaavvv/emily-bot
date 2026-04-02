@@ -1,6 +1,15 @@
 import type { Container } from '../../app/container.js';
 import type { TelegramCallbackQuery } from '../../types/telegram.js';
-import { buildErrorMessage } from '../presenters/errorMessage.js';
+import { callbackPayloadSchema, type CallbackPayload } from '../../validators/callbackPayload.validator.js';
+import {
+  buildErrorMessage,
+  duplicateConfirmationMessage,
+  invalidCallbackMessage,
+  invalidMarketSelectionMessage,
+  ownershipMismatchMessage,
+  staleConfirmationMessage,
+  unknownSessionMessage,
+} from '../presenters/errorMessage.js';
 import { buildPreviewMessage } from '../presenters/previewMessage.js';
 import { buildExecutionResultMessage } from '../presenters/executionResultMessage.js';
 import { confirmKeyboard } from '../keyboards/confirmKeyboard.js';
@@ -10,39 +19,109 @@ export interface CallbackResponse {
   replyMarkup?: Record<string, unknown>;
 }
 
-export async function handleCallbackQuery(container: Container, callback: TelegramCallbackQuery): Promise<CallbackResponse> {
-  const data = callback.data;
-  if (!data) return { text: buildErrorMessage('Missing callback payload.') };
-  const parts = data.split(':');
+function parseCallbackPayload(raw: string): CallbackPayload | null {
+  const parts = raw.split(':');
   const action = parts[0];
-  const pendingTradeId = parts[1];
-  if (!pendingTradeId) return { text: buildErrorMessage('Invalid callback payload.') };
 
-  const existing = await container.pendingTradeStore.get(pendingTradeId);
-  if (!existing) return { text: buildErrorMessage('This confirmation is no longer valid.') };
-  if (existing.userId !== String(callback.from.id)) return { text: buildErrorMessage('This confirmation does not belong to you.') };
-
-  if (action === 'cancel_trade') {
-    await container.confirmationService.cancel(pendingTradeId);
-    return { text: 'Trade cancelled.' };
+  if (action === 'confirm_trade' || action === 'cancel_trade') {
+    const parsed = callbackPayloadSchema.safeParse({
+      action,
+      pendingTradeId: parts[1],
+    });
+    return parsed.success ? parsed.data : null;
   }
 
   if (action === 'select_market') {
-    const candidateIndex = Number(parts[2]);
-    const candidate = existing.marketCandidates?.[candidateIndex];
-    if (!candidate) return { text: buildErrorMessage('Invalid market selection.') };
-    const preview = await container.previewService.build(existing.parsedIntent, candidate);
-    existing.matchedMarket = candidate;
-    existing.preview = preview;
-    existing.state = 'awaiting_confirmation';
-    await container.pendingTradeStore.update(existing);
-    return { text: buildPreviewMessage(existing), replyMarkup: confirmKeyboard(existing.pendingTradeId) };
+    const parsed = callbackPayloadSchema.safeParse({
+      action,
+      pendingTradeId: parts[1],
+      candidateIndex: Number(parts[2]),
+    });
+    return parsed.success ? parsed.data : null;
   }
 
-  if (action === 'confirm_trade') {
-    const confirmed = await container.confirmationService.confirm(pendingTradeId);
-    if (!confirmed) return { text: buildErrorMessage('This confirmation has already been used or expired.') };
-    const result = await container.orderService.execute(pendingTradeId);
+  return null;
+}
+
+export async function handleCallbackQuery(container: Container, callback: TelegramCallbackQuery): Promise<CallbackResponse> {
+  const rawData = callback.data;
+  if (!rawData) {
+    return { text: invalidCallbackMessage() };
+  }
+
+  const payload = parseCallbackPayload(rawData);
+  if (!payload) {
+    container.logger.warn('invalid_callback_payload', {
+      rawData,
+      userId: callback.from.id,
+      callbackId: callback.id,
+    });
+    return { text: invalidCallbackMessage() };
+  }
+
+  const session = await container.confirmationService.getValidSession(payload.pendingTradeId);
+  if (!session) {
+    return { text: unknownSessionMessage() };
+  }
+
+  if (session.userId !== String(callback.from.id)) {
+    container.logger.warn('callback_ownership_mismatch', {
+      pendingTradeId: payload.pendingTradeId,
+      sessionUserId: session.userId,
+      callbackUserId: String(callback.from.id),
+    });
+    return { text: ownershipMismatchMessage() };
+  }
+
+  if (payload.action === 'cancel_trade') {
+    const cancelled = await container.confirmationService.cancel(payload.pendingTradeId);
+    if (!cancelled) return { text: unknownSessionMessage() };
+    return { text: 'Trade cancelled.' };
+  }
+
+  if (session.state === 'expired') {
+    return { text: staleConfirmationMessage() };
+  }
+
+  if (payload.action === 'select_market') {
+    if (session.state !== 'awaiting_market_selection') {
+      return { text: buildErrorMessage('That market selection is no longer valid.') };
+    }
+
+    const candidate = session.marketCandidates?.[payload.candidateIndex];
+    if (!candidate) {
+      return { text: invalidMarketSelectionMessage() };
+    }
+
+    const preview = await container.previewService.build(session.parsedIntent, candidate);
+    session.matchedMarket = candidate;
+    session.preview = preview;
+    session.state = 'awaiting_confirmation';
+    await container.pendingTradeStore.update(session);
+
+    return {
+      text: buildPreviewMessage(session),
+      replyMarkup: confirmKeyboard(session.pendingTradeId),
+    };
+  }
+
+  if (payload.action === 'confirm_trade') {
+    if (session.state === 'executing' || session.state === 'completed') {
+      return { text: duplicateConfirmationMessage() };
+    }
+
+    if (session.state !== 'awaiting_confirmation') {
+      return { text: buildErrorMessage('That confirmation is not in a confirmable state anymore.') };
+    }
+
+    const confirmed = await container.confirmationService.confirm(payload.pendingTradeId);
+    if (!confirmed) {
+      const latest = await container.confirmationService.getValidSession(payload.pendingTradeId);
+      if (latest?.state === 'expired') return { text: staleConfirmationMessage() };
+      return { text: duplicateConfirmationMessage() };
+    }
+
+    const result = await container.orderService.execute(payload.pendingTradeId);
     return { text: buildExecutionResultMessage(result) };
   }
 
