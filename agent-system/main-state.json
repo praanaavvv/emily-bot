@@ -1,0 +1,16 @@
+{
+  "startedAt": "2026-04-23T11:10:35.405Z",
+  "agents": {
+    "subagent-1": {
+      "lastSeenTaskId": "task-s1-001",
+      "lastStatus": "completed",
+      "updatedAt": "2026-04-23T11:10:35.415Z"
+    },
+    "subagent-2": {
+      "lastSeenTaskId": "task-s2-001",
+      "lastStatus": "completed",
+      "updatedAt": "2026-04-23T11:10:35.416Z"
+    }
+  },
+  "updatedAt": "2026-04-23T11:11:11.464Z"
+}

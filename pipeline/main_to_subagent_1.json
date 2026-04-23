@@ -1,0 +1,15 @@
+{
+  "agentId": "subagent-1",
+  "pendingTasks": [
+    {
+      "id": "task-s1-001",
+      "title": "Research modular pipeline improvements",
+      "instructions": "Research ways to improve the shared communication pipeline while keeping agents isolated.",
+      "priority": "high"
+    }
+  ],
+  "control": {
+    "status": "idle"
+  },
+  "updatedAt": "2026-04-23T11:10:35.402Z"
+}
