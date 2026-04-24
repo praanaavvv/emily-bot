@@ -1,0 +1,21 @@
+# Secrets and runtime state
+.env
+credentials/
+identity/
+telegram/
+logs/
+media/
+memory/
+devices/
+delivery-queue/
+subagents/
+tasks/
+exec-approvals.json
+openclaw.json
+openclaw.json.bak*
+update-check.json
+lcm.db*
+flows/*.sqlite*
+
+# Nested workspace junk
+workspace/

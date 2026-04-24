@@ -1,0 +1,1408 @@
+{
+  "agent:main:main": {
+    "sessionId": "9cb42a3f-109d-4915-82e4-f6320421067a",
+    "updatedAt": 1773833692675,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "chatType": "direct",
+    "deliveryContext": {
+      "channel": "webchat"
+    },
+    "lastChannel": "webchat",
+    "origin": {
+      "label": "openclaw-tui",
+      "provider": "webchat",
+      "surface": "webchat",
+      "chatType": "direct"
+    },
+    "sessionFile": "/home/ubuntu/.openclaw/agents/main/sessions/9cb42a3f-109d-4915-82e4-f6320421067a.jsonl",
+    "compactionCount": 0,
+    "skillsSnapshot": {
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>oracle</name>\n    <description>Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tmux</name>\n    <description>Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "skills": [
+        {
+          "name": "clawhub",
+          "requiredEnv": []
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "mcporter",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "oracle",
+          "requiredEnv": []
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "tmux",
+          "requiredEnv": []
+        },
+        {
+          "name": "weather",
+          "requiredEnv": []
+        }
+      ],
+      "resolvedSkills": [
+        {
+          "name": "clawhub",
+          "description": "Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "healthcheck",
+          "description": "Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "mcporter",
+          "description": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "node-connect",
+          "description": "Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "oracle",
+          "description": "Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "skill-creator",
+          "description": "Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like \"create a skill\", \"author a skill\", \"tidy up a skill\", \"improve this skill\", \"review the skill\", \"clean up the skill\", \"audit the skill\".",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "tmux",
+          "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "weather",
+          "description": "Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        }
+      ],
+      "version": 0
+    },
+    "authProfileOverride": "openai-codex:default",
+    "authProfileOverrideSource": "auto",
+    "authProfileOverrideCompactionCount": 0,
+    "modelProvider": "openai-codex",
+    "model": "gpt-5.4",
+    "contextTokens": 272000,
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1773833684185,
+      "sessionId": "9cb42a3f-109d-4915-82e4-f6320421067a",
+      "sessionKey": "agent:main:main",
+      "provider": "openai-codex",
+      "model": "gpt-5.4",
+      "workspaceDir": "/home/ubuntu/.openclaw/workspace",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 150000,
+      "bootstrapTruncation": {
+        "warningMode": "once",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 27571,
+        "projectContextChars": 13601,
+        "nonProjectContextChars": 13970
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/home/ubuntu/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 7809,
+          "injectedChars": 7809,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/home/ubuntu/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1664,
+          "injectedChars": 1664,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/home/ubuntu/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 850,
+          "injectedChars": 850,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/home/ubuntu/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 633,
+          "injectedChars": 633,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/home/ubuntu/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 474,
+          "injectedChars": 474,
+          "truncated": false
+        },
+        {
+          "name": "HEARTBEAT.md",
+          "path": "/home/ubuntu/.openclaw/workspace/HEARTBEAT.md",
+          "missing": false,
+          "rawChars": 167,
+          "injectedChars": 167,
+          "truncated": false
+        },
+        {
+          "name": "BOOTSTRAP.md",
+          "path": "/home/ubuntu/.openclaw/workspace/BOOTSTRAP.md",
+          "missing": false,
+          "rawChars": 1449,
+          "injectedChars": 1449,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 4010,
+        "entries": [
+          {
+            "name": "clawhub",
+            "blockChars": 447
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 506
+          },
+          {
+            "name": "mcporter",
+            "blockChars": 345
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 556
+          },
+          {
+            "name": "oracle",
+            "blockChars": 291
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 774
+          },
+          {
+            "name": "tmux",
+            "blockChars": 270
+          },
+          {
+            "name": "weather",
+            "blockChars": 431
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 1921,
+        "schemaChars": 7923,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 298,
+            "schemaChars": 392,
+            "propertiesCount": 4
+          },
+          {
+            "name": "edit",
+            "summaryChars": 129,
+            "schemaChars": 591,
+            "propertiesCount": 6
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "schemaChars": 313,
+            "propertiesCount": 3
+          },
+          {
+            "name": "exec",
+            "summaryChars": 181,
+            "schemaChars": 1086,
+            "propertiesCount": 12
+          },
+          {
+            "name": "process",
+            "summaryChars": 85,
+            "schemaChars": 961,
+            "propertiesCount": 12
+          },
+          {
+            "name": "cron",
+            "summaryChars": 2689,
+            "schemaChars": 690,
+            "propertiesCount": 13
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 54,
+            "schemaChars": 212,
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 36,
+            "schemaChars": 161,
+            "propertiesCount": 3
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 84,
+            "schemaChars": 273,
+            "propertiesCount": 5
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 97,
+            "schemaChars": 60,
+            "propertiesCount": 1
+          },
+          {
+            "name": "sessions_spawn",
+            "summaryChars": 198,
+            "schemaChars": 1179,
+            "propertiesCount": 17
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 105,
+            "schemaChars": 191,
+            "propertiesCount": 4
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 207,
+            "schemaChars": 89,
+            "propertiesCount": 2
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 175,
+            "schemaChars": 1084,
+            "propertiesCount": 9
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 129,
+            "schemaChars": 374,
+            "propertiesCount": 3
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 334,
+            "schemaChars": 139,
+            "propertiesCount": 3
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 151,
+            "schemaChars": 128,
+            "propertiesCount": 3
+          }
+        ]
+      }
+    },
+    "inputTokens": 5699,
+    "outputTokens": 211,
+    "cacheRead": 3584,
+    "cacheWrite": 0,
+    "totalTokens": 9283,
+    "totalTokensFresh": true
+  },
+  "agent:main:telegram:direct:1154988359": {
+    "origin": {
+      "label": "Dev (@Oxpranav) id:1154988359",
+      "provider": "telegram",
+      "surface": "telegram",
+      "chatType": "direct",
+      "from": "telegram:1154988359",
+      "to": "telegram:1154988359",
+      "accountId": "default"
+    },
+    "sessionId": "4539041f-f8c5-4f9e-8839-e3dae4139860",
+    "updatedAt": 1777007434064,
+    "deliveryContext": {
+      "channel": "telegram",
+      "to": "telegram:1154988359",
+      "accountId": "default"
+    },
+    "lastChannel": "telegram",
+    "lastTo": "telegram:1154988359",
+    "lastAccountId": "default",
+    "systemSent": true,
+    "abortedLastRun": false,
+    "chatType": "direct",
+    "sessionFile": "/home/ubuntu/.openclaw/agents/main/sessions/4539041f-f8c5-4f9e-8839-e3dae4139860.jsonl",
+    "skillsSnapshot": {
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>oracle</name>\n    <description>Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tmux</name>\n    <description>Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "skills": [
+        {
+          "name": "clawhub",
+          "requiredEnv": []
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "mcporter",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "oracle",
+          "requiredEnv": []
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "tmux",
+          "requiredEnv": []
+        },
+        {
+          "name": "weather",
+          "requiredEnv": []
+        }
+      ],
+      "resolvedSkills": [
+        {
+          "name": "clawhub",
+          "description": "Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "healthcheck",
+          "description": "Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "mcporter",
+          "description": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "node-connect",
+          "description": "Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "oracle",
+          "description": "Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "skill-creator",
+          "description": "Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like \"create a skill\", \"author a skill\", \"tidy up a skill\", \"improve this skill\", \"review the skill\", \"clean up the skill\", \"audit the skill\".",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "tmux",
+          "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        },
+        {
+          "name": "weather",
+          "description": "Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather",
+          "source": "openclaw-bundled",
+          "disableModelInvocation": false
+        }
+      ],
+      "version": 0
+    },
+    "authProfileOverride": "openai-codex:default",
+    "authProfileOverrideSource": "auto",
+    "authProfileOverrideCompactionCount": 0,
+    "modelProvider": "openai-codex",
+    "model": "gpt-5.4",
+    "contextTokens": 272000,
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1777007410630,
+      "sessionId": "4539041f-f8c5-4f9e-8839-e3dae4139860",
+      "sessionKey": "agent:main:telegram:direct:1154988359",
+      "provider": "openai-codex",
+      "model": "gpt-5.4",
+      "workspaceDir": "/home/ubuntu/.openclaw/workspace",
+      "bootstrapMaxChars": 12000,
+      "bootstrapTotalMaxChars": 60000,
+      "bootstrapTruncation": {
+        "warningMode": "once",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 35761,
+        "projectContextChars": 14894,
+        "nonProjectContextChars": 20867
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/home/ubuntu/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 8186,
+          "injectedChars": 8186,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/home/ubuntu/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1664,
+          "injectedChars": 1664,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/home/ubuntu/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 850,
+          "injectedChars": 850,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/home/ubuntu/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 476,
+          "injectedChars": 476,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/home/ubuntu/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 1115,
+          "injectedChars": 1115,
+          "truncated": false
+        },
+        {
+          "name": "HEARTBEAT.md",
+          "path": "/home/ubuntu/.openclaw/workspace/HEARTBEAT.md",
+          "missing": false,
+          "rawChars": 167,
+          "injectedChars": 167,
+          "truncated": false
+        },
+        {
+          "name": "BOOTSTRAP.md",
+          "path": "/home/ubuntu/.openclaw/workspace/BOOTSTRAP.md",
+          "missing": false,
+          "rawChars": 1449,
+          "injectedChars": 1449,
+          "truncated": false
+        },
+        {
+          "name": "MEMORY.md",
+          "path": "/home/ubuntu/.openclaw/workspace/MEMORY.md",
+          "missing": false,
+          "rawChars": 802,
+          "injectedChars": 802,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 4010,
+        "entries": [
+          {
+            "name": "clawhub",
+            "blockChars": 447
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 506
+          },
+          {
+            "name": "mcporter",
+            "blockChars": 345
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 556
+          },
+          {
+            "name": "oracle",
+            "blockChars": 291
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 774
+          },
+          {
+            "name": "tmux",
+            "blockChars": 270
+          },
+          {
+            "name": "weather",
+            "blockChars": 431
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 8837,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 298,
+            "schemaChars": 304,
+            "propertiesCount": 3
+          },
+          {
+            "name": "edit",
+            "summaryChars": 326,
+            "schemaChars": 834,
+            "propertiesCount": 2
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "schemaChars": 225,
+            "propertiesCount": 2
+          },
+          {
+            "name": "apply_patch",
+            "summaryChars": 132,
+            "schemaChars": 153,
+            "propertiesCount": 1
+          },
+          {
+            "name": "exec",
+            "summaryChars": 446,
+            "schemaChars": 1157,
+            "propertiesCount": 12
+          },
+          {
+            "name": "process",
+            "summaryChars": 322,
+            "schemaChars": 961,
+            "propertiesCount": 12
+          },
+          {
+            "name": "update_plan",
+            "summaryChars": 251,
+            "schemaChars": 574,
+            "propertiesCount": 2
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 177,
+            "schemaChars": 212,
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 180,
+            "schemaChars": 161,
+            "propertiesCount": 3
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 208,
+            "schemaChars": 274,
+            "propertiesCount": 5
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 97,
+            "schemaChars": 60,
+            "propertiesCount": 1
+          },
+          {
+            "name": "sessions_spawn",
+            "summaryChars": 302,
+            "schemaChars": 1333,
+            "propertiesCount": 18
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 105,
+            "schemaChars": 191,
+            "propertiesCount": 4
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 336,
+            "schemaChars": 89,
+            "propertiesCount": 2
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 175,
+            "schemaChars": 1084,
+            "propertiesCount": 9
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 129,
+            "schemaChars": 374,
+            "propertiesCount": 3
+          },
+          {
+            "name": "image",
+            "summaryChars": 260,
+            "schemaChars": 342,
+            "propertiesCount": 6
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 385,
+            "schemaChars": 260,
+            "propertiesCount": 4
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 239,
+            "schemaChars": 249,
+            "propertiesCount": 4
+          }
+        ]
+      }
+    },
+    "totalTokensFresh": true,
+    "totalTokens": 43614,
+    "memoryFlushAt": 1775072430248,
+    "memoryFlushCompactionCount": 0,
+    "compactionCheckpoints": [
+      {
+        "checkpointId": "3bf0a25a-c206-44fb-bd9c-d87082bd81c9",
+        "sessionKey": "agent:main:telegram:direct:1154988359",
+        "sessionId": "4539041f-f8c5-4f9e-8839-e3dae4139860",
+        "createdAt": 1777006972110,
+        "reason": "overflow-retry",
+        "tokensBefore": 237936,
+        "tokensAfter": 30340,
+        "summary": "## Decisions\n- **MVP architecture remains service/gateway-wrapper based**: keep `src/polymarket/polymarketClient.ts`, `marketGateway.ts`, `bookGateway.ts`, `positionGateway.ts`, `tradingGateway.ts` as the isolation layer around external APIs/SDK uncertainty.\n- **Safety gating is central**: `APP_MODE`, `ALLOW_LIVE_EXECUTION`, `DRY_RUN`, and `PAPER_TRADING` control execution posture; default mode stays safe/non-live.\n- **Two-gate live safety remains enforced**: `APP_MODE=live` requires `ALLOW_LIVE_EXECUTION=true`, and live mode requires `POLYMARKET_PRIVATE_KEY`.\n- **Parser is deterministic and fail-safe**: never invent missing fields; conflicting buy/sell or YES/NO returns `parse_failed` with reason `'conflicting_fields'`; invalid/non-positive amount returns `parse_failed` with reason `'invalid_amount'`; missing required fields returns `clarification_needed`; `\"long\"` maps to buy with warning; `\"short\"` is not auto-mapped because ambiguous.\n- **Clarification beats risky inference**: ambiguous market matching must ask the user to choose; no silent guessing.\n- **Confirmation-before-execution is mandatory**: never auto-execute immediately after parsing; pending confirmations must expire quickly and be single-use with transition to `executing` before order placement.\n- **Strict Telegram callback validation stays in place**: `callbackPayloadSchema` uses discriminated unions for `confirm_trade`, `cancel_trade`, `select_market`; malformed/stale/duplicate/ownership-mismatch flows have hardened messages.\n- **Duplicate confirm is guarded at multiple layers**: handler, `ConfirmationService`, and `OrderService.execute` all protect against double execution.\n- **Execution must fail closed if live integration is missing**: `PolymarketClient.submitOrder(...)` explicitly simulates in safe modes and throws for attempted true live submission in the current workspace build.\n- **Unknown execution outcomes are surfaced, not hidden**: reconciliation scaffolding exists and `OrderService.execute` can return `unknown_execution_state` / `EXECUTION_REQUIRES_RECONCILIATION` rather than pretending certainty.\n- **Redis persistence was added behind the existing interface**: `src/session/redisPendingTradeStore.ts` was implemented without breaking the in-memory path; `src/app/container.ts` selects Redis when `REDIS_URL` is present, otherwise `InMemoryPendingTradeStore`.\n- **Current workspace compile state is clean after latest patch**: `npm run build` passed after the latest hardening changes.\n- **Real-money readiness is still explicitly denied**: honest status remains local MVP / dry run / paper testing = reasonably hardened; real-money live trading = not yet production-safe.\n- **Durable memory policy remains active**: Obsidian vault at `/home/ubuntu/Obsidian/OpenClaw-Agent-Memory` is the primary long-term memory “brain”; workspace memory file `/home/ubuntu/.openclaw/workspace/memory/2026-04-01.md` was used for the permitted flush.\n- **Latest explicit user ask was completed**: “do all three” was satisfied by patching the Obsidian project note, implementing Redis-backed pending trade storage, and hardening Polymarket execution/reconciliation scaffolding.\n\n## Open TODOs\n- Wire actual official Polymarket live order posting into `src/polymarket/polymarketClient.ts`.\n- Replace `getOrderStatusByClientOrderId(...)` / `reconcileByClientOrderId(...)` scaffolding with real upstream reconciliation.\n- Strengthen `src/services/marketMatchingService.ts` before any real-capital use.\n- Add stronger distributed locking / CAS semantics to Redis for multi-instance safety.\n- Re-audit `src/bot/handlers/onMessage.ts` and `src/services/marketMatchingService.ts` for remaining production-risk edges.\n- Add fuller integration/regression coverage for Telegram callback flow, Redis persistence, and execution/reconciliation paths.\n- Optionally expose Redis selection through config instead of reading `process.env.REDIS_URL` directly inside `src/app/container.ts`.\n- Keep Obsidian project memory synchronized with meaningful workspace progress.\n\n## Constraints/Rules\n- User should be called **boss**; assistant name is **Emily**; tone should be funny, respectful, playful, sometimes sarcastic when rude; emoji **🤭**.\n- Use Node.js + TypeScript.\n- Code should be clean, modular, compile-ready, and not pseudocode.\n- Use robust types and Zod validation.\n- Graceful error handling is required.\n- Local development first.\n- Prioritize correctness and safety over fancy UI.\n- Never auto-execute immediately after parsing.\n- Always require confirmation before trade execution.\n- Never guess silently if market matching is ambiguous.\n- If multiple markets are similar, show options and ask the user to choose.\n- Start with simple in-memory stores, but structure so Redis/Postgres can be added later.\n- Use official Polymarket TypeScript client / SDK wherever possible.\n- If SDK details are uncertain, isolate them behind wrapper/gateway files and clearly mark integration points.\n- No blind order retries; read-only network calls may retry, but trade submission must not be blindly retried.\n- Pending confirmations must expire quickly and be single-use with state transition to `executing` before order placement.\n- `APP_MODE=live` must require `ALLOW_LIVE_EXECUTION=true` and a private key.\n- Default mode must be safe and non-live.\n- In dry run, bot should parse, search, confirm, and simulate execution with realistic fake execution result.\n- Live mode should only activate with explicit env enablement; no real order can be placed accidentally.\n- Real-money behavior must fail closed if true live order posting is not actually integrated.\n- Preserve exact file paths, identifiers, and messages.\n- Must not claim live readiness casually; verdict remains “not yet production-safe for real-money live trading”.\n- During the memory flush, only `/home/ubuntu/.openclaw/workspace/memory/2026-04-01.md` was writable; bootstrap/reference files like `MEMORY.md`, `SOUL.md`, `TOOLS.md`, `AGENTS.md` were not to be edited.\n\n## Pending user asks\n- None unresolved in the provided conversation.\n- The previous explicit follow-up, “do all three”, was completed:\n  1. patch Obsidian project note\n  2. implement Redis-backed pending trade storage\n  3. harden Polymarket execution/reconciliation scaffolding\n- Ongoing implicit expectation: continue truthful hardening work without overstating production readiness.\n\n## Exact identifiers\n- Project root: `/home/ubuntu/.openclaw/workspace/polymarket-telegram-bot`\n- Durable memory file used: `/home/ubuntu/.openclaw/workspace/memory/2026-04-01.md`\n- Obsidian vault path: `/home/ubuntu/Obsidian/OpenClaw-Agent-Memory`\n- Obsidian project note: `/home/ubuntu/Obsidian/OpenClaw-Agent-Memory/Projects/project-polymarket-btc-bot.md`\n- Obsidian env file: `/home/ubuntu/.config/openclaw/obsidian-memory.env`\n- Workspace policy/docs: `/home/ubuntu/.openclaw/workspace/MEMORY.md`, `/home/ubuntu/.openclaw/workspace/AGENTS.md`, `/home/ubuntu/.openclaw/workspace/USER.md`, `/home/ubuntu/.openclaw/wor\n\n[Compaction summary truncated to fit budget]\n\n**Turn Context (split turn):**\n\n## Decisions\n- The user wants actual code changes applied across the bot UX flow, not explanatory text.\n- Scope is limited to UX/message formatting, keyboards, and presenter wiring; architecture must not be redesigned.\n- Telegram output must be safely formatted using `MarkdownV2` or `HTML`, with consistent compact sections and protection against broken formatting from special characters.\n- Safety behavior must be enforced in the flow: no confirm button when price is unavailable, show an expiry message for expired sessions, and block duplicate confirms.\n\n## Open TODOs\n- Update presenter files:\n  - `src/bot/presenters/previewMessage.ts`\n  - `src/bot/presenters/ambiguityMessage.ts`\n  - `src/bot/presenters/executionResultMessage.ts`\n  - `src/bot/presenters/errorMessage.ts`\n- Standardize message structure across presenters using:\n  - Title\n  - Key details\n  - Warning (if any)\n  - Next action\n- Make messages compact and Telegram-friendly.\n- Update keyboards:\n  - `src/bot/keyboards/confirmKeyboard.ts`\n  - `src/bot/keyboards/marketOptionsKeyboard.ts`\n- Ensure button labels are clear: `Confirm` / `Cancel`.\n- Ensure callback payloads are safe and actions are unambiguous.\n- Wire presenters correctly into:\n  - `onMessage.ts` for `search → ambiguity → preview`\n  - `onCallbackQuery.ts` for `confirm / cancel / execute`\n- Add state-aware messages before each step:\n  - `🔍 Searching market…`\n  - `⚖️ Multiple matches found…`\n  - `🧾 Review trade…`\n  - `⏳ Placing order…`\n- Implement safety rules in flow handling:\n  - If price is unavailable → do not show confirm button\n  - If session expired → show expiry message\n  - If duplicate confirm → block execution\n- Return all modified files in full, compile-ready.\n\n## Constraints/Rules\n- Do not redesign architecture — only improve UX + wiring.\n- Use the improved UX text exactly.\n- Format output properly for Telegram using `MarkdownV2` or `HTML`.\n- Ensure alignment and readability.\n- Avoid broken formatting from special characters.\n- Keep messages compact.\n- Use consistent sections in messages.\n- Use clear button labels.\n- Use safe callback payloads.\n- Avoid ambiguous actions.\n- Provide code changes only.\n- Return:\n  - all modified files in FULL\n  - no summaries\n  - no partial snippets\n  - compile-ready code\n\n## Pending user asks\n- Fully implement the requested UX in the codebase.\n- Modify the specified presenter and keyboard files.\n- Wire the presenters into `onMessage.ts` and `onCallbackQuery.ts`.\n- Add the required state-aware messages before each step.\n- Enforce the three listed safety rules.\n- Return the complete contents of all modified files.\n\n## Exact identifiers\n- `message_id`: `555`\n- `sender_id`: `1154988359`\n- `sender`: `Dev`\n- `timestamp`: `Thu 2026-04-02 04:48 UTC`\n- `label`: `Dev (1154988359)`\n- `id`: `1154988359`\n- `name`: `Dev`\n- `username`: `Oxpranav`\n- `src/bot/presenters/previewMessage.ts`\n- `src/bot/presenters/ambiguityMessage.ts`\n- `src/bot/presenters/executionResultMessage.ts`\n- `src/bot/presenters/errorMessage.ts`\n- `src/bot/keyboards/confirmKeyboard.ts`\n- `src/bot/keyboards/marketOptionsKeyboard.ts`\n- `onMessage.ts`\n- `onCallbackQuery.ts`\n- `search → ambiguity → preview`\n- `confirm / cancel / execute`\n- `MarkdownV2`\n- `HTML`\n- `Confirm`\n- `Cancel`\n- `🔍 Searching market…`\n- `⚖️ Multiple matches found…`\n- `🧾 Review trade…`\n- `⏳ Placing order…`\n- `If price is unavailable → DO NOT show confirm button`\n- `If session expired → show expiry message`\n- `If duplicate confirm → block execution`\n\n## Recent turns preserved verbatim\n- User: Conversation info (untrusted metadata):\n```json\n{\n  \"message_id\": \"523\",\n  \"sender_id\": \"1154988359\",\n  \"sender\": \"Dev\",\n  \"timestamp\": \"Thu 2026-04-02 03:53 UTC\"\n}\n```\n\nSender (untrusted metadata):\n```json\n{\n  \"label\": \"Dev (1154988359)\",\n  \"id\": \"1154988359\",\n  \"name\": \"Dev\",\n  \"username\": \"Oxpranav\"\n}\n```\n\nNow give me exact local setup and run instructions for this project.\n\nI want:\n- dependency install commands\n- how to create the Telegram bot\n- how to set env vars\n- how to run in dev mode\n- how to test parsing without placing a real trade\n- how to test the confirmation flow safely\n- how t...\n- Assistant: [[reply_to_current]] Boss, here are the **exact local setup and run instructions**, in the right order, with commands.\n\n---\n\n# 1) Go to the project\n\n```bash\ncd /home/ubuntu/.openclaw/workspace/polymarket-telegram-bot\n```\n\n---\n\n# 2) Install dependencies\n\nUse Node 22 if possible.\n\n## Check current versions\n```bash\nnode -v\nnpm -v\n```\n\n## If you use nvm\n```bash\nnvm install 22\nnvm use 22\nnvm alias default 22\n```\n\n## Install project dependencies\n```bash\nnpm install\n```\n\nIf you want a clean lockfile install later:\n```bash\nnpm ci\n```\n\n---\n\n# 3) Create the Telegram bot\n\nYou need **BotFather** in Telegr...\n- User: Conversation info (untrusted metadata):\n```json\n{\n  \"message_id\": \"530\",\n  \"sender_id\": \"1154988359\",\n  \"sender\": \"Dev\",\n  \"timestamp\": \"Thu 2026-04-02 04:06 UTC\"\n}\n```\n\nSender (untrusted metadata):\n```json\n{\n  \"label\": \"Dev (1154988359)\",\n  \"id\": \"1154988359\",\n  \"name\": \"Dev\",\n  \"username\": \"Oxpranav\"\n}\n```\n\nNow write a complete test plan for this bot.\n\nCover:\n- parser tests\n- market matching tests\n- confirmation flow tests\n- duplicate confirm click tests\n- expired session tests\n- execution success tests\n- execution failure tests\n- ambiguous market tests\n- malformed user input tests\n\nFor each...\n- Assistant: [[reply_to_current]] Boss, here’s a **complete practical test plan** for the bot.\n\nThis is written like something a backend engineer would actually use:\n- clear scenario\n- concrete input\n- expected behavior\n- exact assertions\n\n---\n\n# Test Plan — Polymarket Telegram Bot MVP\n\n---\n\n## 1) Parser tests\n\n---\n\n### Test P1 — Standard buy command parses correctly\n**Scenario:** user sends a clean buy command with amount, side, and market query.\n\n**Input:**\n```text\nBuy $25 YES on BTC above 100k by June\n```\n\n**Expected behavior:**\n- parser returns `parsed_trade_intent`\n- action = `buy`\n- side = `yes`\n- am...\n- User: Conversation info (untrusted metadata):\n```json\n{\n  \"message_id\": \"544\",\n  \"sender_id\": \"1154988359\",\n  \"sender\": \"Dev\",\n  \"timestamp\": \"Thu 2026-04-02 04:29 UTC\"\n}\n```\n\nSender (untrusted metadata):\n```json\n{\n  \"label\": \"Dev (1154988359)\",\n  \"id\": \"1154988359\",\n  \"name\": \"Dev\",\n  \"username\": \"Oxpranav\"\n}\n```\n\nNow improve the bot UX.\n\nI want:\n- cleaner Telegram messages\n- friendlier confirmations\n- concise error messages\n- clear ambiguity handling when multiple markets match\n- status messages like “searching market”, “awaiting confirmation”, “trade placed”, “trade failed”\n\nReturn improved text ...\n- Assistant: [[reply_to_current]] Boss, here’s a cleaner **UX text pack** for all user-facing bot responses.\n\nThe goal:\n- cleaner Telegram messages\n- less robotic noise\n- clearer next step\n- less clutter\n- better trust during trading flow\n\n---\n\n# 1) General style rules\n\n## Tone\nUse:\n- calm\n- concise\n- clear\n- slightly human\n- never overly chatty during execution\n\n## Good pattern\nEvery response should answer:\n- what happened\n- what the bot needs next\n- what the user can do now\n\n## Avoid\n- giant paragraphs\n- vague failure messages\n- raw JSON-ish wording\n- “internal system” style phrasing\n- overly dramatic wa...\n\n<read-files>\n/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/docs/channels/telegram.md\n/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/docs/cli/plugins.md\n/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/docs/plugins/community.md\n/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/docs/tools/plugin.md\n/home/ubuntu/.openclaw/workspace/BOOTSTRAP.md\n/home/ubuntu/.openclaw/workspace/SOUL.md\n/home/ubuntu/.openclaw/workspace/memory/2026-03-17.md\n/home/ubuntu/.openclaw/workspace/polymarket-telegram-bot/src/app/config.ts\n/home/ubuntu/.openclaw/workspace/polymarket-telegram-bot/src/app/container.ts\n/home/ubuntu/.openclaw/workspace/polymarket-telegram-bot/src/app/env.ts\n/home/ubuntu/.openclaw/workspace/polymarket-telegram-bot/src/bot/handlers/onCallbackQuery.ts\n...and 21 more\n\n</read-files>\n\n<modified-files>\n/home/ubuntu/.openclaw/workspace/AGENTS.md\n/home/ubuntu/.openclaw/workspace/IDENTITY.md\n/home/ubuntu/.openclaw/workspace/MEMORY.md\n/home/ubuntu/.openclaw/workspace/USER.md\n/home/ubuntu/.openclaw/workspace/memory/2026-03-18.md\n/home/ubuntu/.openclaw/workspace/memory/2026-03-20.md\n/home/ubuntu/.openclaw/workspace/memory/2026-03-24.md\n/home/ubuntu/.openclaw/workspace/obsidian-memory-setup.md\n/home/ubuntu/.openclaw/workspace/polymarket-btc-phase1.md\n/home/ubuntu/.openclaw/workspace/polymarket-telegram-bot/.env.example\n/home/ubuntu/.openclaw/workspace/polymarket-telegram-bot/package.json\n/home/ubuntu/.openclaw/workspace/polymarket-telegram-bot/src/parser/commandParser.ts\n/home/ubuntu/.openclaw/workspace/polymarket-telegram-bot/src/polymarket/polymarketClient.ts\n...and 5 more\n\n</modified-files>",
+        "firstKeptEntryId": "bea01517",
+        "preCompaction": {
+          "sessionId": "4539041f-f8c5-4f9e-8839-e3dae4139860",
+          "sessionFile": "/home/ubuntu/.openclaw/agents/main/sessions/4539041f-f8c5-4f9e-8839-e3dae4139860.checkpoint.57a6682b-809f-4541-8659-9324c7a61803.jsonl",
+          "leafId": "3adba345"
+        },
+        "postCompaction": {
+          "sessionId": "4539041f-f8c5-4f9e-8839-e3dae4139860",
+          "sessionFile": "/home/ubuntu/.openclaw/agents/main/sessions/4539041f-f8c5-4f9e-8839-e3dae4139860.jsonl",
+          "leafId": "eb19c274",
+          "entryId": "eb19c274"
+        }
+      }
+    ],
+    "status": "done",
+    "startedAt": 1777007410890,
+    "endedAt": 1777007433945,
+    "runtimeMs": 23055,
+    "estimatedCostUsd": 0.282886,
+    "compactionCount": 1
+  },
+  "agent:main:telegram:group:-5153807254": {
+    "sessionId": "a39b7b88-6f3f-4995-b342-812151c83576",
+    "updatedAt": 1777011700704,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "authProfileOverride": "openai-codex:default",
+    "authProfileOverrideSource": "auto",
+    "authProfileOverrideCompactionCount": 0,
+    "displayName": "telegram:g-final-play",
+    "chatType": "group",
+    "channel": "telegram",
+    "groupId": "-5153807254",
+    "subject": "Final Play",
+    "deliveryContext": {
+      "channel": "telegram",
+      "to": "telegram:-5153807254",
+      "accountId": "default"
+    },
+    "lastChannel": "telegram",
+    "lastTo": "telegram:-5153807254",
+    "lastAccountId": "default",
+    "origin": {
+      "label": "Final Play id:-5153807254",
+      "provider": "telegram",
+      "surface": "telegram",
+      "chatType": "group",
+      "from": "telegram:group:-5153807254",
+      "to": "telegram:-5153807254",
+      "accountId": "default"
+    },
+    "sessionFile": "/home/ubuntu/.openclaw/agents/main/sessions/a39b7b88-6f3f-4995-b342-812151c83576.jsonl",
+    "compactionCount": 0,
+    "skillsSnapshot": {
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>backtest-expert</name>\n    <description>Expert guidance for systematic backtesting of trading strategies. Use when developing, testing, stress-testing, or validating quantitative trading strategies. Covers &quot;beating ideas to death&quot; methodology, parameter robustness testing, slippage modeling, bias prevention, and interpreting backtest results. Applicable when user asks about backtesting, strategy validation, robustness testing, avoiding overfitting, or systematic trading development.</description>\n    <location>~/.openclaw/workspace/skills/backtest-expert/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>institutional-flow-tracker</name>\n    <description>Use this skill to track institutional investor ownership changes and portfolio flows using 13F filings data. Analyzes hedge funds, mutual funds, and other institutional holders to identify stocks with significant smart money accumulation or distribution. Helps discover stocks before major moves by following where sophisticated investors are deploying capital.</description>\n    <location>~/.openclaw/workspace/skills/institutional-flow-tracker/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>market-news-analyst</name>\n    <description>This skill should be used when analyzing recent market-moving news events and their impact on equity markets and commodities. Use this skill when the user requests analysis of major financial news from the past 10 days, wants to understand market reactions to monetary policy decisions (FOMC, ECB, BOJ), needs assessment of geopolitical events&apos; impact on commodities, or requires comprehensive review of earnings announcements from mega-cap stocks. The skill automatically collects news using WebSearch/WebFetch tools and produces impact-ranked analysis reports. All analysis thinking and output are conducted in English.</description>\n    <location>~/.openclaw/workspace/skills/market-news-analyst/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>obsidian</name>\n    <description>Work with Obsidian vaults as a knowledge base. Features: fuzzy/phonetic search across all notes, auto-folder detection for new notes, create/read/edit notes with frontmatter, manage tags and wikilinks. Use when: querying knowledge base, saving notes/documents, editing existing notes by user instructions.</description>\n    <location>~/.openclaw/workspace/skills/obsidian-direct/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>obsidian-memory-manager</name>\n    <description>Use for meaningful tasks that may depend on prior context, durable memory, project history, decisions, entities, or long-term knowledge stored in the Obsidian vault. Also use when the agent should store important results, decisions, summaries, project context, or learned facts into the Obsidian vault at /home/ubuntu/Obsidian/OpenClaw-Agent-Memory. Triggers on requests involving memory, recall, project continuity, session summaries, decisions, long-term notes, knowledge capture, or when the agent completes substantial work that should be remembered.</description>\n    <location>~/.openclaw/workspace/skills/obsidian-memory-manager/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>oracle</name>\n    <description>Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>quantitative-research</name>\n    <description>World-class systematic trading research - backtesting, alpha generation, factor models, statistical arbitrage. Transform hypotheses into edges. Use when &quot;backtest, alpha, factor model, statistical arbitrage, quant research, systematic trading, mean reversion, momentum strategy, regime detection, walk forward, &quot; mentioned.</description>\n    <location>~/.openclaw/workspace/skills/quantitative-research/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>taskflow</name>\n    <description>Use when work should span one or more detached tasks but still behave like one job with a single owner context. TaskFlow is the durable flow substrate under authoring layers like Lobster, ACPX, plugins, or plain code. Keep conditional logic in the caller; use TaskFlow for flow identity, child-task linkage, waiting state, revision-checked mutations, and user-facing emergence.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>taskflow-inbox-triage</name>\n    <description>Example TaskFlow authoring pattern for inbox triage. Use when messages need different treatment based on intent, with some routes notifying immediately, some waiting on outside answers, and others rolling into a later summary.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow-inbox-triage/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tmux</name>\n    <description>Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>~/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "skills": [
+        {
+          "name": "backtest-expert"
+        },
+        {
+          "name": "clawhub",
+          "requiredEnv": []
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "institutional-flow-tracker"
+        },
+        {
+          "name": "market-news-analyst"
+        },
+        {
+          "name": "mcporter",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "obsidian"
+        },
+        {
+          "name": "obsidian-memory-manager"
+        },
+        {
+          "name": "oracle",
+          "requiredEnv": []
+        },
+        {
+          "name": "quantitative-research"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "tmux",
+          "requiredEnv": []
+        },
+        {
+          "name": "weather",
+          "requiredEnv": []
+        }
+      ],
+      "resolvedSkills": [
+        {
+          "name": "backtest-expert",
+          "description": "Expert guidance for systematic backtesting of trading strategies. Use when developing, testing, stress-testing, or validating quantitative trading strategies. Covers \"beating ideas to death\" methodology, parameter robustness testing, slippage modeling, bias prevention, and interpreting backtest results. Applicable when user asks about backtesting, strategy validation, robustness testing, avoiding overfitting, or systematic trading development.",
+          "filePath": "/home/ubuntu/.openclaw/workspace/skills/backtest-expert/SKILL.md",
+          "baseDir": "/home/ubuntu/.openclaw/workspace/skills/backtest-expert",
+          "source": "openclaw-workspace",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.openclaw/workspace/skills/backtest-expert/SKILL.md",
+            "source": "openclaw-workspace",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.openclaw/workspace/skills/backtest-expert"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "clawhub",
+          "description": "Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/clawhub"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "healthcheck",
+          "description": "Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/healthcheck"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "institutional-flow-tracker",
+          "description": "Use this skill to track institutional investor ownership changes and portfolio flows using 13F filings data. Analyzes hedge funds, mutual funds, and other institutional holders to identify stocks with significant smart money accumulation or distribution. Helps discover stocks before major moves by following where sophisticated investors are deploying capital.",
+          "filePath": "/home/ubuntu/.openclaw/workspace/skills/institutional-flow-tracker/SKILL.md",
+          "baseDir": "/home/ubuntu/.openclaw/workspace/skills/institutional-flow-tracker",
+          "source": "openclaw-workspace",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.openclaw/workspace/skills/institutional-flow-tracker/SKILL.md",
+            "source": "openclaw-workspace",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.openclaw/workspace/skills/institutional-flow-tracker"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "market-news-analyst",
+          "description": "This skill should be used when analyzing recent market-moving news events and their impact on equity markets and commodities. Use this skill when the user requests analysis of major financial news from the past 10 days, wants to understand market reactions to monetary policy decisions (FOMC, ECB, BOJ), needs assessment of geopolitical events' impact on commodities, or requires comprehensive review of earnings announcements from mega-cap stocks. The skill automatically collects news using WebSearch/WebFetch tools and produces impact-ranked analysis reports. All analysis thinking and output are conducted in English.",
+          "filePath": "/home/ubuntu/.openclaw/workspace/skills/market-news-analyst/SKILL.md",
+          "baseDir": "/home/ubuntu/.openclaw/workspace/skills/market-news-analyst",
+          "source": "openclaw-workspace",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.openclaw/workspace/skills/market-news-analyst/SKILL.md",
+            "source": "openclaw-workspace",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.openclaw/workspace/skills/market-news-analyst"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "mcporter",
+          "description": "Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/mcporter"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "node-connect",
+          "description": "Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/node-connect"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "obsidian",
+          "description": "Work with Obsidian vaults as a knowledge base. Features: fuzzy/phonetic search across all notes, auto-folder detection for new notes, create/read/edit notes with frontmatter, manage tags and wikilinks. Use when: querying knowledge base, saving notes/documents, editing existing notes by user instructions.",
+          "filePath": "/home/ubuntu/.openclaw/workspace/skills/obsidian-direct/SKILL.md",
+          "baseDir": "/home/ubuntu/.openclaw/workspace/skills/obsidian-direct",
+          "source": "openclaw-workspace",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.openclaw/workspace/skills/obsidian-direct/SKILL.md",
+            "source": "openclaw-workspace",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.openclaw/workspace/skills/obsidian-direct"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "obsidian-memory-manager",
+          "description": "Use for meaningful tasks that may depend on prior context, durable memory, project history, decisions, entities, or long-term knowledge stored in the Obsidian vault. Also use when the agent should store important results, decisions, summaries, project context, or learned facts into the Obsidian vault at /home/ubuntu/Obsidian/OpenClaw-Agent-Memory. Triggers on requests involving memory, recall, project continuity, session summaries, decisions, long-term notes, knowledge capture, or when the agent completes substantial work that should be remembered.",
+          "filePath": "/home/ubuntu/.openclaw/workspace/skills/obsidian-memory-manager/SKILL.md",
+          "baseDir": "/home/ubuntu/.openclaw/workspace/skills/obsidian-memory-manager",
+          "source": "openclaw-workspace",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.openclaw/workspace/skills/obsidian-memory-manager/SKILL.md",
+            "source": "openclaw-workspace",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.openclaw/workspace/skills/obsidian-memory-manager"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "oracle",
+          "description": "Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/oracle"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "quantitative-research",
+          "description": "World-class systematic trading research - backtesting, alpha generation, factor models, statistical arbitrage. Transform hypotheses into edges. Use when \"backtest, alpha, factor model, statistical arbitrage, quant research, systematic trading, mean reversion, momentum strategy, regime detection, walk forward, \" mentioned.",
+          "filePath": "/home/ubuntu/.openclaw/workspace/skills/quantitative-research/SKILL.md",
+          "baseDir": "/home/ubuntu/.openclaw/workspace/skills/quantitative-research",
+          "source": "openclaw-workspace",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.openclaw/workspace/skills/quantitative-research/SKILL.md",
+            "source": "openclaw-workspace",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.openclaw/workspace/skills/quantitative-research"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "skill-creator",
+          "description": "Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like \"create a skill\", \"author a skill\", \"tidy up a skill\", \"improve this skill\", \"review the skill\", \"clean up the skill\", \"audit the skill\".",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/skill-creator"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "taskflow",
+          "description": "Use when work should span one or more detached tasks but still behave like one job with a single owner context. TaskFlow is the durable flow substrate under authoring layers like Lobster, ACPX, plugins, or plain code. Keep conditional logic in the caller; use TaskFlow for flow identity, child-task linkage, waiting state, revision-checked mutations, and user-facing emergence.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "taskflow-inbox-triage",
+          "description": "Example TaskFlow authoring pattern for inbox triage. Use when messages need different treatment based on intent, with some routes notifying immediately, some waiting on outside answers, and others rolling into a later summary.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow-inbox-triage/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow-inbox-triage",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow-inbox-triage/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/taskflow-inbox-triage"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "tmux",
+          "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/tmux"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "weather",
+          "description": "Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.",
+          "filePath": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather/SKILL.md",
+          "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather",
+          "source": "openclaw-bundled",
+          "sourceInfo": {
+            "path": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather/SKILL.md",
+            "source": "openclaw-bundled",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "/home/ubuntu/.nvm/versions/node/v25.8.1/lib/node_modules/openclaw/skills/weather"
+          },
+          "disableModelInvocation": false
+        }
+      ],
+      "version": 0
+    },
+    "status": "running",
+    "startedAt": 1777011700674,
+    "modelProvider": "openai-codex",
+    "model": "gpt-5.4",
+    "contextTokens": 200000,
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1777011628692,
+      "sessionId": "a39b7b88-6f3f-4995-b342-812151c83576",
+      "sessionKey": "agent:main:telegram:group:-5153807254",
+      "provider": "openai-codex",
+      "model": "gpt-5.4",
+      "workspaceDir": "/home/ubuntu/.openclaw/workspace",
+      "bootstrapMaxChars": 12000,
+      "bootstrapTotalMaxChars": 60000,
+      "bootstrapTruncation": {
+        "warningMode": "once",
+        "warningShown": false,
+        "truncatedFiles": 0,
+        "nearLimitFiles": 0,
+        "totalNearLimit": false
+      },
+      "sandbox": {
+        "mode": "off",
+        "sandboxed": false
+      },
+      "systemPrompt": {
+        "chars": 40619,
+        "projectContextChars": 14894,
+        "nonProjectContextChars": 25725
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "/home/ubuntu/.openclaw/workspace/AGENTS.md",
+          "missing": false,
+          "rawChars": 8186,
+          "injectedChars": 8186,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "/home/ubuntu/.openclaw/workspace/SOUL.md",
+          "missing": false,
+          "rawChars": 1664,
+          "injectedChars": 1664,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "/home/ubuntu/.openclaw/workspace/TOOLS.md",
+          "missing": false,
+          "rawChars": 850,
+          "injectedChars": 850,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "/home/ubuntu/.openclaw/workspace/IDENTITY.md",
+          "missing": false,
+          "rawChars": 476,
+          "injectedChars": 476,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "/home/ubuntu/.openclaw/workspace/USER.md",
+          "missing": false,
+          "rawChars": 1115,
+          "injectedChars": 1115,
+          "truncated": false
+        },
+        {
+          "name": "HEARTBEAT.md",
+          "path": "/home/ubuntu/.openclaw/workspace/HEARTBEAT.md",
+          "missing": false,
+          "rawChars": 167,
+          "injectedChars": 167,
+          "truncated": false
+        },
+        {
+          "name": "BOOTSTRAP.md",
+          "path": "/home/ubuntu/.openclaw/workspace/BOOTSTRAP.md",
+          "missing": false,
+          "rawChars": 1449,
+          "injectedChars": 1449,
+          "truncated": false
+        },
+        {
+          "name": "MEMORY.md",
+          "path": "/home/ubuntu/.openclaw/workspace/MEMORY.md",
+          "missing": false,
+          "rawChars": 802,
+          "injectedChars": 802,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 8684,
+        "entries": [
+          {
+            "name": "backtest-expert",
+            "blockChars": 619
+          },
+          {
+            "name": "clawhub",
+            "blockChars": 447
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 506
+          },
+          {
+            "name": "institutional-flow-tracker",
+            "blockChars": 545
+          },
+          {
+            "name": "market-news-analyst",
+            "blockChars": 796
+          },
+          {
+            "name": "mcporter",
+            "blockChars": 345
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 556
+          },
+          {
+            "name": "obsidian",
+            "blockChars": 460
+          },
+          {
+            "name": "obsidian-memory-manager",
+            "blockChars": 732
+          },
+          {
+            "name": "oracle",
+            "blockChars": 291
+          },
+          {
+            "name": "quantitative-research",
+            "blockChars": 507
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 774
+          },
+          {
+            "name": "taskflow",
+            "blockChars": 558
+          },
+          {
+            "name": "taskflow-inbox-triage",
+            "blockChars": 433
+          },
+          {
+            "name": "tmux",
+            "blockChars": 270
+          },
+          {
+            "name": "weather",
+            "blockChars": 431
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 8837,
+        "entries": [
+          {
+            "name": "read",
+            "summaryChars": 298,
+            "schemaChars": 304,
+            "propertiesCount": 3
+          },
+          {
+            "name": "edit",
+            "summaryChars": 326,
+            "schemaChars": 834,
+            "propertiesCount": 2
+          },
+          {
+            "name": "write",
+            "summaryChars": 127,
+            "schemaChars": 225,
+            "propertiesCount": 2
+          },
+          {
+            "name": "apply_patch",
+            "summaryChars": 132,
+            "schemaChars": 153,
+            "propertiesCount": 1
+          },
+          {
+            "name": "exec",
+            "summaryChars": 446,
+            "schemaChars": 1157,
+            "propertiesCount": 12
+          },
+          {
+            "name": "process",
+            "summaryChars": 322,
+            "schemaChars": 961,
+            "propertiesCount": 12
+          },
+          {
+            "name": "update_plan",
+            "summaryChars": 251,
+            "schemaChars": 574,
+            "propertiesCount": 2
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 177,
+            "schemaChars": 212,
+            "propertiesCount": 4
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 180,
+            "schemaChars": 161,
+            "propertiesCount": 3
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 208,
+            "schemaChars": 274,
+            "propertiesCount": 5
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 97,
+            "schemaChars": 60,
+            "propertiesCount": 1
+          },
+          {
+            "name": "sessions_spawn",
+            "summaryChars": 302,
+            "schemaChars": 1333,
+            "propertiesCount": 18
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 105,
+            "schemaChars": 191,
+            "propertiesCount": 4
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 336,
+            "schemaChars": 89,
+            "propertiesCount": 2
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 175,
+            "schemaChars": 1084,
+            "propertiesCount": 9
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 129,
+            "schemaChars": 374,
+            "propertiesCount": 3
+          },
+          {
+            "name": "image",
+            "summaryChars": 260,
+            "schemaChars": 342,
+            "propertiesCount": 6
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 385,
+            "schemaChars": 260,
+            "propertiesCount": 4
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 239,
+            "schemaChars": 249,
+            "propertiesCount": 4
+          }
+        ]
+      }
+    },
+    "inputTokens": 2082,
+    "outputTokens": 569,
+    "cacheRead": 35328,
+    "cacheWrite": 0,
+    "estimatedCostUsd": 0.75768,
+    "totalTokens": 37410,
+    "totalTokensFresh": true
+  }
+}

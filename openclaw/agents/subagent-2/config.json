@@ -1,0 +1,14 @@
+{
+  "agentId": "subagent-2",
+  "branch": "subagent-2-branch",
+  "role": "Validation and operations specialist",
+  "workspace": "/home/ubuntu/.openclaw/agents/subagent-2",
+  "vaultPath": "/home/ubuntu/.openclaw/agents/subagent-2/vault",
+  "logPath": "/home/ubuntu/.openclaw/agents/subagent-2/logs/subagent-2.log",
+  "taskQueuePath": "/home/ubuntu/.openclaw/agents/subagent-2/task-queue.json",
+  "pollIntervalMs": 3000,
+  "pipeline": {
+    "incoming": "/home/ubuntu/.openclaw/workspace/pipeline/main_to_subagent_2.json",
+    "outgoing": "/home/ubuntu/.openclaw/workspace/pipeline/subagent_2_to_main.json"
+  }
+}

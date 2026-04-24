@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "lastGood": {
+    "openai-codex": "openai-codex:default"
+  },
+  "usageStats": {
+    "openai-codex:default": {
+      "errorCount": 0,
+      "lastUsed": 1777011641418,
+      "lastFailureAt": 1776769190322
+    }
+  }
+}

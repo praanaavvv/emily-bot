@@ -1,0 +1,14 @@
+{
+  "agentId": "subagent-1",
+  "branch": "subagent-1-branch",
+  "role": "Research and implementation specialist",
+  "workspace": "/home/ubuntu/.openclaw/agents/subagent-1",
+  "vaultPath": "/home/ubuntu/.openclaw/agents/subagent-1/vault",
+  "logPath": "/home/ubuntu/.openclaw/agents/subagent-1/logs/subagent-1.log",
+  "taskQueuePath": "/home/ubuntu/.openclaw/agents/subagent-1/task-queue.json",
+  "pollIntervalMs": 3000,
+  "pipeline": {
+    "incoming": "/home/ubuntu/.openclaw/workspace/pipeline/main_to_subagent_1.json",
+    "outgoing": "/home/ubuntu/.openclaw/workspace/pipeline/subagent_1_to_main.json"
+  }
+}
