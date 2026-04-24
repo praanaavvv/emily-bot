@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "market-news-analyst": {
+      "version": "0.1.0",
+      "installedAt": 1774017534686
+    },
+    "backtest-expert": {
+      "version": "0.1.0",
+      "installedAt": 1774017534816
+    },
+    "quantitative-research": {
+      "version": "1.0.0",
+      "installedAt": 1774017534886
+    },
+    "institutional-flow-tracker": {
+      "version": "0.1.0",
+      "installedAt": 1774017534912
+    },
+    "quant-trading-backtrader": {
+      "version": "1.0.0",
+      "installedAt": 1774017543851
+    },
+    "obsidian-direct": {
+      "version": "1.0.0",
+      "installedAt": 1774345100845
+    }
+  }
+}
